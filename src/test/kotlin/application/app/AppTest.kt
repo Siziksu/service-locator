@@ -28,25 +28,25 @@ class AppTest {
 
     @Test
     fun testApp() {
-        val useCase: UseCaseContract by lazy { inject() }
+        val useCase: UseCaseContract by inject()
         assertEquals("Guillaume", useCase.start())
     }
 
     @Test
     fun testPresenter() {
-        val presenter: PresenterContract by lazy { inject() }
+        val presenter: PresenterContract by inject()
         assertEquals("Guillaume", presenter.start())
     }
 
     @Test
     fun testStringRepository() {
-        val stringRepository: StringRepositoryContract by lazy { inject() }
+        val stringRepository: StringRepositoryContract by inject()
         assertEquals("Esteban", stringRepository.get("name"))
     }
 
     @Test
     fun anotherRepository() {
-        val anotherRepository: AnotherRepositoryContract by lazy { inject() }
+        val anotherRepository: AnotherRepositoryContract by inject()
         assertEquals("Another repository function", anotherRepository.function())
     }
 }

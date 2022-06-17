@@ -7,8 +7,8 @@ import locator.inject
 
 class UseCase : UseCaseContract {
 
-    private val stringRepository: StringRepositoryContract by lazy { inject() }
-    private val anotherRepository: AnotherRepositoryContract by lazy { inject() }
+    private val stringRepository: StringRepositoryContract by inject()
+    private val anotherRepository: AnotherRepositoryContract by inject()
 
     override fun start(): String = "${stringRepository.get("name")}\n${anotherRepository.function()}"
 }

@@ -9,6 +9,6 @@
 - [ ] Factory object declaration in modules
 - [x] DSL to start the locator and for the modules
 - [x] Field injection `inject()` usable with `by lazy`
-- [ ] Default lazy `inject()`
+- [x] Default lazy `by inject()`
 - [ ] Constructor injection
 - [ ] Module `get()`

@@ -4,7 +4,7 @@ import locator.inject
 
 class App {
 
-    private val presenter: PresenterContract by lazy { inject() }
+    private val presenter: PresenterContract by inject()
 
     fun start() {
         println(presenter.start())
