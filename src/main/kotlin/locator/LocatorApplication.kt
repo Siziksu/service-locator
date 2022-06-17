@@ -18,7 +18,7 @@ class LocatorApplication private constructor() {
     }
 
     inline fun <reified T> get(): T {
-        return hash[typeOf<T>()] as? T ?: throw Exception("Bean ${typeOf<T>()} not available")
+        return hash[typeOf<T>()] as? T ?: throw Exception("Bean ${(T::class).simpleName ?: typeOf<T>()} not defined")
     }
 
     private fun loadModules(modules: List<Module>) {
