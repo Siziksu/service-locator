@@ -1,6 +1,7 @@
 package application
 
 import application.app.Presenter
+import application.app.PresenterContract
 import application.data.repository.AnotherRepository
 import application.data.repository.StringRepository
 import application.data.repository.contract.AnotherRepositoryContract
@@ -26,7 +27,7 @@ class AppTest {
                 set<AnotherRepositoryContract>(AnotherRepository())
                 set<StringRepositoryContract>(StringRepository())
                 set<UseCaseContract>(UseCaseMock())
-                set(Presenter())
+                set<PresenterContract>(Presenter())
             })
         }
 
@@ -42,7 +43,7 @@ class AppTest {
 
     @Test
     fun testPresenter() {
-        val presenter: Presenter by lazy { inject() }
+        val presenter: PresenterContract by lazy { inject() }
         assertEquals("Guillaume", presenter.start())
     }
 }

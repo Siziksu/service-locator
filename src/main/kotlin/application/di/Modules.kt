@@ -1,5 +1,7 @@
 package application.di
 
+import application.app.Presenter
+import application.app.PresenterContract
 import application.data.repository.AnotherRepository
 import application.data.repository.StringRepository
 import application.data.repository.contract.AnotherRepositoryContract
@@ -12,4 +14,5 @@ internal val appModule = module {
     set<AnotherRepositoryContract>(AnotherRepository())
     set<StringRepositoryContract>(StringRepository())
     set<UseCaseContract>(UseCase())
+    set<PresenterContract>(Presenter())
 }
