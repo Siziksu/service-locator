@@ -1,20 +1,15 @@
-package application
+package application.app
 
-import application.app.Presenter
-import application.app.PresenterContract
-import application.data.repository.AnotherRepository
-import application.data.repository.StringRepository
-import application.data.repository.contract.AnotherRepositoryContract
 import application.data.repository.contract.StringRepositoryContract
 import application.domain.contract.UseCaseContract
 import locator.GlobalContext
 import locator.inject
-import locator.module
 import locator.startLocator
 import locator.stopLocator
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import resources.di.appModuleTest
 
 class AppTest {
 
@@ -23,12 +18,7 @@ class AppTest {
         stopLocator()
 
         startLocator {
-            modules(module {
-                set<AnotherRepositoryContract>(AnotherRepository())
-                set<StringRepositoryContract>(StringRepository())
-                set<UseCaseContract>(UseCaseMock())
-                set<PresenterContract>(Presenter())
-            })
+            modules(appModuleTest)
         }
 
         val stringRepository = GlobalContext.locator().get<StringRepositoryContract>()
