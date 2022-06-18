@@ -1,11 +1,10 @@
 package locator
 
-import kotlin.reflect.KType
 import kotlin.reflect.typeOf
 
 class LocatorApplication private constructor() {
 
-    val hash = HashMap<KType, Any>()
+    val hash = HashMap<String, Any>()
 
     fun modules(vararg modules: Module): LocatorApplication {
         loadModules(modules.asList())
@@ -17,9 +16,8 @@ class LocatorApplication private constructor() {
         return this
     }
 
-    inline fun <reified T> get(): T {
-        return hash[typeOf<T>()] as? T ?: throw Exception("Bean ${(T::class).simpleName ?: typeOf<T>()} not defined")
-    }
+    inline fun <reified T> get(): T = hash["${typeOf<T>()}"] as? T
+        ?: throw Exception("Bean ${(T::class).simpleName ?: typeOf<T>()} not defined")
 
     private fun loadModules(modules: List<Module>) {
         modules.forEach { module ->
