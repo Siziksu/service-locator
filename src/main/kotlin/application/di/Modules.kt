@@ -11,11 +11,11 @@ import application.domain.contract.UseCaseContract
 import locator.module
 
 internal val appModule = module {
-    set<PresenterContract>(Presenter())
+    set<PresenterContract>(Presenter(inject()))
 }
 
 internal val domainModule = module {
-    set<UseCaseContract>(UseCase())
+    set<UseCaseContract>(UseCase(inject(), inject()))
 }
 
 internal val dataModule = module {

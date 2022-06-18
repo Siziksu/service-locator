@@ -11,7 +11,7 @@ import locator.module
 import resources.mock.domain.UseCaseMock
 
 internal val appModuleTest = module {
-    set<PresenterContract>(Presenter())
+    set<PresenterContract>(Presenter(inject()))
 }
 
 internal val domainModuleTest = module {

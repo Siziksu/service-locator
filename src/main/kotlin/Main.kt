@@ -3,7 +3,7 @@ import application.data.repository.contract.StringRepositoryContract
 import application.di.appModule
 import application.di.dataModule
 import application.di.domainModule
-import locator.GlobalContext
+import locator.inject
 import locator.startLocator
 
 fun main() {
@@ -19,6 +19,6 @@ internal fun initLocator() {
             dataModule
         )
     }
-    val stringRepository = GlobalContext.locator.get<StringRepositoryContract>()
+    val stringRepository: StringRepositoryContract by inject()
     stringRepository.set("name", "Esteban")
 }
