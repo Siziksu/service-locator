@@ -7,8 +7,8 @@ class LocatorApplication private constructor() {
 
     val hash = HashMap<KType, Any>()
 
-    fun modules(module: Module): LocatorApplication {
-        modules(listOf(module))
+    fun modules(vararg modules: Module): LocatorApplication {
+        loadModules(modules.asList())
         return this
     }
 

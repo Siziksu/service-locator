@@ -11,8 +11,14 @@ import application.domain.contract.UseCaseContract
 import locator.module
 
 internal val appModule = module {
+    set<PresenterContract>(Presenter())
+}
+
+internal val domainModule = module {
+    set<UseCaseContract>(UseCase())
+}
+
+internal val dataModule = module {
     set<AnotherRepositoryContract>(AnotherRepository())
     set<StringRepositoryContract>(StringRepository())
-    set<UseCaseContract>(UseCase())
-    set<PresenterContract>(Presenter())
 }

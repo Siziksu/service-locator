@@ -11,8 +11,14 @@ import locator.module
 import resources.mock.domain.UseCaseMock
 
 internal val appModuleTest = module {
+    set<PresenterContract>(Presenter())
+}
+
+internal val domainModuleTest = module {
+    set<UseCaseContract>(UseCaseMock())
+}
+
+internal val dataModuleTest = module {
     set<AnotherRepositoryContract>(AnotherRepository())
     set<StringRepositoryContract>(StringRepository())
-    set<UseCaseContract>(UseCaseMock())
-    set<PresenterContract>(Presenter())
 }

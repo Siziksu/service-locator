@@ -11,6 +11,8 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import resources.di.appModuleTest
+import resources.di.dataModuleTest
+import resources.di.domainModuleTest
 
 class AppTest {
 
@@ -19,7 +21,11 @@ class AppTest {
         stopLocator()
 
         startLocator {
-            modules(appModuleTest)
+            modules(
+                appModuleTest,
+                domainModuleTest,
+                dataModuleTest
+            )
         }
 
         val stringRepository = GlobalContext.locator().get<StringRepositoryContract>()
