@@ -12,4 +12,4 @@ fun module(definition: Module.() -> Unit): Module {
     return module
 }
 
-inline fun <reified T : Any> inject(): Lazy<T> = lazy(LazyThreadSafetyMode.SYNCHRONIZED) { GlobalContext.locator().get() }
+inline fun <reified T : Any> inject(): Lazy<T> = lazy(LazyThreadSafetyMode.SYNCHRONIZED) { GlobalContext.locator.get() }

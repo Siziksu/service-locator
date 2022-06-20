@@ -28,7 +28,7 @@ class AppTest {
             )
         }
 
-        val stringRepository = GlobalContext.locator().get<StringRepositoryContract>()
+        val stringRepository = GlobalContext.locator.get<StringRepositoryContract>()
         stringRepository.set("name", "Esteban")
     }
 
